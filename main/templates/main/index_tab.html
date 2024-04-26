@@ -1,0 +1,63 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Головна сторінка
+{% endblock %}
+{% block content %}
+  <h2>Усі книги</h2>
+
+<table class="table">
+
+    <thead class="thead-dark">
+        <tr>
+        <th scope = "col"> # </th>
+        <th scope = "col"> Назва </th>
+        <th scope = "col">Автор</th>
+        <th scope = "col">Рік видання</th>
+        <th scope = "col"> Опис</th>
+        <th scope = "col"> Кількість </th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+    {% if softs %}
+        {% for el in softs %}
+            <tr>
+             <th> {{ el.id }} </th>
+             <td> {{ el.title }} </td>
+             <td> {{ el.author }} </td>
+             <td> {{ el.published }} </td>
+             <td> {{ el.text|truncatewords:3 }} </td>
+             <td> {{ el.count }} </td>
+
+                <td>
+                <a type="button" class="btn btn-white btn-sm"
+                   href="soft/{{ el.id }}/view">
+                   <img src="https://cdn3d.iconscout.com/3d/premium/thumb/view-10177279-8249006.png?f=webp" width="30" height="30">
+                    </a>
+                    </td>
+
+                    <td>
+                    <a type="button" class="btn btn-white btn-sm"
+                   href="soft/{{ el.id }}/edit">
+                   <img src="https://cdn-icons-png.flaticon.com/512/3795/3795851.png" width="30" height="30">
+                    </a>
+                    </td>
+
+                <td>
+                    <a type="button" class="btn btn-white btn-sm"
+                   href="soft/{{ el.id }}/delete">
+                   <img src="https://cdn-icons-png.flaticon.com/512/10613/10613743.png" width="25" height="30">
+                    </a>
+                    </td>
+
+                    </tr>
+                {% endfor %}
+                    {% else %}
+                        <p>Такі книги у нашому каталозі відсутні...</p>
+                    {% endif %}
+    </tbody>
+
+</table>
+
+{% endblock %}

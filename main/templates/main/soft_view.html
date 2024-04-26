@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Додати книгу
+{% endblock %}
+{% block content %}
+  <h2>Додати книгу</h2>
+
+<div class="alert alert-succes mt-1">
+                <p>{{ softs.id }}</p>
+                <h3><u>{{ softs.title }}</u></h3>
+                <p><b><i>{{ softs.author }}</i></b></p>
+                <i><p>{{ softs.text }}</p></i>
+                <b><p>Видано: {{ softs.published }}</p></b>
+                <p>Кількість: {{ softs.count }}</p>
+                <p>Зареєстровано: {{ softs.created }}</p>
+</div>
+{% endblock %}

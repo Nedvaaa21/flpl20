@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+{% block title %}
+Додати книги
+{% endblock %}
+{% block content %}
+  <h2>Додати програму</h2>
+
+
+  <form method="post">
+      {% csrf_token %}
+      <label for="title"><b>Назва книги</b></label>
+      {{ form.title }}<br>
+      <label for="title"><b>Автор</b></label>
+      {{ form.author }}<br>
+      <label for="title"><b>Опис</b></label>
+      {{ form.text }}<br>
+      <label for="title"><b>Рік видання</b></label>
+      {{ form.published }}<br>
+      <label for="title"><b>Кількість книг</b></label>
+      {{ form.count }}<br>
+    <button type="submit" class="btn btn-success">Додати</button>
+  </form>
+{% endblock %}

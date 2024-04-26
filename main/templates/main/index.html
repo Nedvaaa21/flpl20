@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+{% block title %}
+{{title}}
+{% endblock %}
+{% block content %}
+<h1>Головна сторінка!</h1>
+    {% if softs %}
+        {% for el in softs %}
+            <div class="alert alert-secondary mt-2">
+                <p>{{ el.id }}</p>
+                <h3><u>{{ el.title }}</u></h3>
+                <p><b><i>{{ el.author }}</i></b></p>
+                <i><p>{{ el.text }}</p></i>
+                <b><p>Видано: {{ el.published }}</p></b>
+                <p>Кількість: {{ el.count }}</p>
+                <p>Зареєстровано: {{ el.created }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+    <br>
+    <p>Нажаль, книг, які відповідають вашому запиту у нас відсутні</p>
+    </br>
+    {% endif %}
+
+
+{% endblock %}
